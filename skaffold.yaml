@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+build:
+  artifacts:
+  - image: flask-todo-app
+    context: flask-app
+deploy:
+  helm:
+    releases:
+    - name: flask-app
+      chartPath: flask-app/helm
+      setValues:
+        image.repository: flask-todo-app

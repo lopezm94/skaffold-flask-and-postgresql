@@ -1,0 +1,18 @@
+replicaCount: 1
+
+image:
+  repository: flask-todo-app
+  pullPolicy: IfNotPresent
+  # tag: "latest" # You can specify a tag here
+
+service:
+  type: ClusterIP
+  port: 80
+
+# Configures the postgres chart dependency
+postgresql:
+  enabled: true
+  auth:
+    username: myuser
+    password: mypass
+    database: mydb
